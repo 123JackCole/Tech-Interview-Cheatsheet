@@ -428,15 +428,99 @@ BinaryTree.prototype.BFS = function () {
 
 // tries
 
+function Node(data) {
+    this.data = data;
+    this.isEndOfWord = false;
+    this.children = {};
+}
 
+function Trie() {
+    this.root = new Node();
+}
+
+Trie.prototype.insert = function(word) {
+
+    let node = this.root;
+
+    for (char of word) {
+        if (node[char] == null) node[char] = {};
+        node = node[char];
+    }
+
+    node.isEndOfWord = true;
+}
+
+Trie.prototype.search = function(word) {
+
+    let node = this.root;
+
+    for (char of word) {
+        node = node[char];
+        if (node === null) return null;
+    }
+
+    return node !== null && node.isEndOfWord === true;
+
+}
+
+t = new Trie();
+
+console.log(t.insert("test"));
+console.log(t.insert("toaster"));
+console.log(t.insert("taco"));
+console.log(t.search("test"));
+console.log(t.search("toast"));
+console.log(t.remove("test"));
+console.log(t.search("test"));
 
 // merge sort
 
+const divide = (arr) => {
+    if (arr.length < 2) {
+        return arr;
+    }
 
+    const center = Math.floor(arr.length / 2);
+    const left = arr.slice(0, center);
+    const right = arr.slice(center);
+    
+    return sort(divide(left), divide(right));
+}
+
+const sort = (left, right) => {
+
+    const result = [];
+
+    while (left.length && right.length) {
+        left[0] < right[0] ? result.push(left.shift()) : result.push(right.shift());
+    }
+
+    const output = [...result, ...left, ...right];
+    return output;
+}
 
 // quick sort
 
+const quickSort = (arr) => {
 
+    if (arr.length < 2) {
+        return arr;
+    }
+
+    const index = arr.length - 1;
+    const element = arr[index];
+    const a = [];
+    const b = [];
+    let temp;
+
+    for (let i = 0; i < index; i++) {
+        temp = arr[i];
+        temp < element ? a.push(temp) : b.push(temp);
+    }
+
+    const output = [...quickSort(a), element, ...quickSort(b)]
+    return output;
+}
 
 // memoization
 

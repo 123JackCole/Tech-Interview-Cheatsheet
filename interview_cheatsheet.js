@@ -215,16 +215,91 @@ console.log(h.content);
 
 // sets
 
-
+set = new Set();
+console.log(set.add(3));
+console.log(set.add(1));
+console.log(set.add(2));
+console.log(set.has(2));
+console.log(set.delete(2));
+console.log(set.has(2));
+console.log(set.keys());
+console.log(set.values());
+console.log(set.size());
+console.log(set.clear());
+console.log(set.size());
 
 // hash maps
+
+class Graph {
+
+    constructor() {
+        this.AdjList = new Map();
+    }
+
+    addNode(data) {
+        this.AdjList.set(data, []);
+    }
+
+    addEdge(node1, node2) {
+        this.AdjList.get(node2).push(node1);
+        this.AdjList.get(node1).push(node2);
+    }
+
+    print() {
+        for ([key, value] of this.AdjList) {
+            console.log(key, value);
+        }
+    }
+}
+
+// create our nodes and edges in arrays
+const nodes = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
+const edges = [['A', 'B'], ['A', 'C'], ['A', 'D'], ['C', 'F'], ['D', 'E'],
+            ['E', 'F'], ['C', 'G'], ['C', 'H'], ['E', 'H']];
+
+// create a new graph
+graph = new Graph();
+
+// loop through our arrays to add our nodes and edges to our graph
+nodes.forEach(node => {
+    graph.addNode(node);
+});
+
+edges.forEach(([node1, node2]) => {
+    graph.addEdge(node1, node2);
+});
+
+// print it
+graph.print();
+
 // trees
+
+
+
 // binary search
+
+
+
 // dfs
+
+
+
 // bfs
+
+
+
 // tries
+
+
+
 // merge sort
+
+
+
 // quick sort
+
+
+
 // memoization
 
-// combine all past blogs into this post
+

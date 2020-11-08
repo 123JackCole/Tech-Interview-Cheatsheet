@@ -335,11 +335,96 @@ class Node {
 
 // dfs
 
-
+BinaryTree.prototype.DFSPreOrder = function () {
+    let visited = [];
+  
+    let current = this.root;
+  
+    let traverse = (node) => {
+      visited.push(node.data);
+  
+      if (node.left) {
+        traverse(node.left);
+      }
+      if (node.right) {
+        traverse(node.right);
+      }
+    };
+  
+    traverse(current);
+    return visited;
+  };
+  
+  BinaryTree.prototype.DFSPostOrder = function () {
+    let visited = [];
+  
+    let current = this.root;
+  
+    let traverse = (node) => {
+      if (node.left) {
+        traverse(node.left);
+      }
+      if (node.right) {
+        traverse(node.right);
+      }
+  
+      visited.push(node.data);
+    };
+  };
+  
+  BinaryTree.prototype.DFSInOrder = function () {
+    let visited = [];
+  
+    let current = this.root;
+  
+    let traverse = (node) => {
+      if (node.left) {
+        traverse(node.left);
+      }
+  
+      visited.push(node.data);
+  
+      if (node.right) {
+        traverse(node.right);
+      }
+    };
+  };
+  
+  BinarySearchTree.DFSPreOrder();
+  BinarySearchTree.DFSPostOrder();
+  BinarySearchTree.DFSInOrder();
 
 // bfs
 
-
+BinaryTree.prototype.BFS = function () {
+    // array where we store the value of each node that we have visited
+    let visited = [];
+  
+    // variable to keep track of current node
+    let current = this.root;
+  
+    // queue to store all nodes we need to visit
+    let queue = [current];
+  
+    // this loop runs until our queue is empty
+    // we look at the next node in the queue, add it to the visited array
+    // finally, we add any children of the current node to the queue
+    while (queue.length) {
+      current = queue.shift();
+      visited.push(current.data);
+  
+      if (current.left) {
+        queue.push(current.left);
+      }
+      if (current.right) {
+        queue.push(current.right);
+      }
+    }
+  
+    return visited;
+  };
+  
+  BinarySearchTree.BFS();
 
 // tries
 

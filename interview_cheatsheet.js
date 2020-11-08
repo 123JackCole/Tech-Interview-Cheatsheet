@@ -220,6 +220,7 @@ console.log(set.add(3));
 console.log(set.add(1));
 console.log(set.add(2));
 console.log(set.has(2));
+console.log(set.get(2));
 console.log(set.delete(2));
 console.log(set.has(2));
 console.log(set.keys());
@@ -230,6 +231,21 @@ console.log(set.size());
 
 // hash maps
 
+hash = new Map();
+console.log(set.set('c', 3));
+console.log(set.set('a', 1));
+console.log(set.set('b', 2));
+console.log(set.has('b'));
+console.log(set.get('b'));
+console.log(set.delete('b'));
+console.log(set.has('b'));
+console.log(set.keys());
+console.log(set.values());
+console.log(set.size());
+console.log(set.clear());
+console.log(set.size());
+
+// graph
 class Graph {
 
     constructor() {
@@ -274,7 +290,44 @@ graph.print();
 
 // trees
 
+class Node {
+    constructor(data) {
+        this.data = data;
+        this.left = null;
+        this.right = null;
+    }
+    
+}
+  
+  class BinaryTree {
+    constructor() {
+        this.root = null;
+    }
 
+    add(data) {
+        const newNode = new Node(data);
+        !this.root ? this.root = newNode : this.addNode(this.root, newNode);
+    }
+
+    addNode(node, newNode) {
+        if (newNode.data < node.data) {
+          !node.left ? node.left = newNode : this.addNode(node.left, newNode);
+        } else {
+          !node.right ? node.right = newNode : this.addNode(node.right, newNode);
+        }
+    }
+
+  }
+  
+  BinarySearchTree = new BinaryTree();
+  
+  console.log(BinarySearchTree.add(4));
+  console.log(BinarySearchTree.add(7));
+  console.log(BinarySearchTree.add(2));
+  console.log(BinarySearchTree.add(9));
+  console.log(BinarySearchTree.add(3));
+  console.log(BinarySearchTree.add(13));
+  console.log(BinarySearchTree.add(17));
 
 // binary search
 

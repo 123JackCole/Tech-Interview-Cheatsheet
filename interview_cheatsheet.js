@@ -54,7 +54,54 @@ ll.add(1);
 ll.print();
 
 // stacks
+
+class Stack {
+
+    constructor() {
+        this.elements = [];
+    }
+
+    push(data) {
+        this.elements.push(data);
+    }
+
+    pop() {
+        this.elements.length === 0 ? "Nothing is on the stack" : this.elements.pop();
+    }
+    
+}
+
+stack = new Stack();
+stack.push(1);
+stack.push(2);
+stack.push(3);
+stack.pop();
+console.log(stack.elements);
+
 // queues
+
+class Queue {
+
+    constructor() {
+        this.elements = [];
+    }
+
+    enqueue() {
+        this.elements.push(data);
+    }
+
+    dequeue() {
+        this.elements.shift();
+    }
+}
+
+// create a queue
+testQueue = new Queue();
+testQueue.enqueue(9);
+testQueue.enqueue(2);
+testQueue.dequeue();
+console.log(testQueue.elements);
+ 
 // heaps
 // sets
 // hash maps

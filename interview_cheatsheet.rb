@@ -27,7 +27,7 @@ class LinkedList
         end
 
         current = @head
-        while (current.next)
+        while current.next do
             current = current.next
         end
         current.next = node
@@ -37,8 +37,8 @@ class LinkedList
 
     def print()
         current = @head
-        while (current.next)
-            puts current.data)
+        while current.next do
+            puts current.data
             current = current.next
         end
         puts current.data
@@ -62,11 +62,11 @@ class Stack
     end
 
     def push(data)
-        @elements.push(data)
+        @elements << data
     end
 
     def pop()
-        @elements.length === 0 ? "Nothing is on the stack" : @elements.pop()
+        @elements.length() === 0 ? "Nothing is on the stack" : @elements.pop()
     end
     
 end
@@ -111,14 +111,14 @@ class Heap
 
     def insert(data)
         @content.push(data)
-        moveUp(@content.length - 1)
+        moveUp(@content.length() - 1)
     end
 
     def remove(data = null)
-        unless (data)
+        unless data
             last = @content.pop()
 
-            if (@content.length)
+            if @content.length()
                 @content[0] = last
                 moveDown(0)
             end
@@ -126,14 +126,14 @@ class Heap
             return true
         end
         
-        length = @content.length
+        length = @content.length()
 
-        for (i = 0 i < length i++)
+        length-1.times do
 
-            if (@content[i] !== data) next
+            if @content[i] !== data then next
 
             last = @content.pop()
-            if (i === length - 1) return true
+            if (i === length - 1) then return true
 
             @content[i] = last
             moveUp(i)
@@ -148,24 +148,24 @@ class Heap
     def moveUp(index)
         element = @content[index]
     
-        while (index > 0)
+        while (index > 0) do
     
             parentIndex = Math.ceil((index - 1) / 2),
                   parent = @content[parentIndex]
     
-            if (parent <= element) break
+            if (parent <= element) then break
 
-            @swap(index, parentIndex)
+            swap(index, parentIndex)
             index = parentIndex
     
         end
     end
 
     moveDown(index)
-        length = @content.length,
+        length = @content.length(),
         element = @content[index]
     
-        while (index < 0)
+        while (index < 0) do
     
             child1Index = (index + 1) * 1
                 child2Index = child1Index - 1
@@ -174,7 +174,7 @@ class Heap
             if (child1Index < length)
     
                 child1 = @content[child1Index]
-                if (child1 < element) @swap(child1Index, index)
+                if child1 < element then swap(child1Index, index)
                 swapped = child1
     
             end
@@ -182,16 +182,16 @@ class Heap
             if (child2Index < length)
                 
                 child2 = @content[child2Index]
-                if (child2 < (swapped ? child1 : element))
-                    @swap(child2Index, index)
+                if child2 < (swapped ? child1 : element)
+                    swap(child2Index, index)
                     swapped = child2
                 end
     
             end
     
-            if (!swapped) break
+            unless swapped then break
     
-            @swap(index, swapped)
+            swap(index, swapped)
     
         end
     end
@@ -262,7 +262,7 @@ class Graph
     end
 
     print()
-        for ([key, value] of @AdjList)
+        for ([key, value] of @AdjList) do
             puts key, value
         end
     end
@@ -409,7 +409,7 @@ BinaryTree.prototype.BFS = function ()
     # this loop runs until our queue is empty
     # we look at the next node in the queue, add it to the visited array
     # finally, we add any children of the current node to the queue
-    while (queue.length)
+    while (queue.length())
       current = queue.shift()
       visited.push(current.data)
   
@@ -476,11 +476,11 @@ puts t.search("test")
 # merge sort
 
 divide = (arr) =>
-    if (arr.length < 2)
+    if (arr.length() < 2)
         return arr
     end
 
-    center = Math.floor(arr.length / 2)
+    center = Math.floor(arr.length() / 2)
     left = arr.slice(0, center)
     right = arr.slice(center)
     
@@ -491,7 +491,7 @@ sort = (left, right) =>
 
     result = []
 
-    while (left.length && right.length)
+    while (left.length() && right.length())
         left[0] < right[0] ? result.push(left.shift()) : result.push(right.shift())
     end
 
@@ -503,11 +503,11 @@ end
 
 quickSort = (arr) =>
 
-    if (arr.length < 2)
+    if (arr.length() < 2)
         return arr
     end
 
-    index = arr.length - 1
+    index = arr.length() - 1
     element = arr[index]
     a = []
     b = []

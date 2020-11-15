@@ -310,9 +310,9 @@ end
     end
 
     addNode(node, newNode)
-        if (newNode.data < node.data)
+        if newNode.data < node.data
           !node.left ? node.left = newNode : @addNode(node.left, newNode)
-        end else
+        else
           !node.right ? node.right = newNode : @addNode(node.right, newNode)
         end
     end
